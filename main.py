@@ -16,10 +16,6 @@ bp = BuscadorPalabras()
 def index():
     return flask.render_template('index.html')
 
-@app.route('/index2')
-def index2():
-    return flask.render_template('index2.html')
-
 @app.route('/result', methods=['GET'])
 def result():
     if request.method == 'GET':
