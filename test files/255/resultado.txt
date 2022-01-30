@@ -1,0 +1,2349 @@
+
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_datos_cliente_valida_clave.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER PROCEDURE jusp_datos_cliente_valida_clave
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE dbo.jusp_datos_cliente_valida_clave >>>'
+    
+    EXPRESION: left outer join
+    VECES: 1
+    REGISTRO: 					LEFT OUTER JOIN cob_bvirtual..bv_medio_envio ON ja_ntv = me_login
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 					,ja_p_apellido + ' ' + ja_p_nombre as [nombre]
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 					and me_tipo = 'TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				select '-80', 'No existe cliente'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('dbo.jusp_datos_cliente_valida_clave') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE dbo.jusp_datos_cliente_valida_clave >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERING PROCEDURE dbo.jusp_datos_cliente_valida_clave >>>'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_oper_autorizado.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER Procedure [dbo].[jusp_oper_autorizado](
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_oper_autorizado >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 28-02-2012  	Ivan Perez        Cambio operacion 'D'    	*/
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 30-03-2012  	Ivan Perez        Cambio operacion 'C'    	*/
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 23-04-2012	Aurymar Romero    Cambio oper='I'         	*/
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 07-04-2014 	Jose Ñañez        Cambio oper='I' elimina 	*/
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_descripcion       varchar(64)  = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_login             varchar(20) = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_email             varchar (255)   = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_celular           varchar (11)   = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_vigencia     varchar(1) = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_autorizado        char(1) = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_autorizacion varchar (10) = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_alias             varchar(32) = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_oper_autorizado'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'I'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	set @w_ntv = ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and ja_cambio_perfil = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if (@w_ntv <> '') and (@w_ntv is not null)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'E'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				ja_imp_carta = 'S'          
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if (@w_ntv <> '') and (@w_ntv is not null)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	  @i_tipo_cliente      = 'C',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_estado             = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_celular,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_celular,'') <> ''    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'A',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end --if @i_operacion = 'I' 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @i_estado             = 'V',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user        = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='MAIL'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user              = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo_cliente      = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_gasa              = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'P',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_srv          = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_lsrv         = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_operacion    = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_tipo         = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_categoria    = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_sector       = 'COMERCIAL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_notificacion = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_autorizado   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_origen_ente  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_segmento     = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_subsegmento  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_ssl		   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('jusp_oper_autorizado') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_oper_autorizado >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERING PROCEDURE jusp_oper_autorizado >>>'
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0    
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0 
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0 
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_oper_autorizado_cm.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER Procedure [dbo].[jusp_oper_autorizado_cm](
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_oper_autorizado_cm>>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_descripcion       varchar(64)  = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_login             varchar(20) = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_email             varchar (255)   = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_celular           varchar (11)   = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_vigencia     varchar(1) = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_autorizado        char(1) = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_autorizacion varchar (10) = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_alias             varchar(32) = ' ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_oper_autorizado_cm'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'I'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	set @w_ntv = ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and ja_cambio_perfil = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if (@w_ntv <> '') and (@w_ntv is not null)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'E'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				ja_imp_carta = 'S'          
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if (@w_ntv <> '') and (@w_ntv is not null)
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	  @i_tipo_cliente      = 'C',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		 lo_otp = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		 lo_otp_estado = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	     lo_estado = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	     lo_cultura = 'ES-VE'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             where tabla in (select codigo from cobis..cl_tabla where tabla = 'bv_servicios_cm') 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             and estado = 'V') 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			   @i_estado             = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_servicio_cm = (select isnull (pa_tinyint, 12) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'CCASH')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_servicio_bm = (select isnull (pa_smallint, 13) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'MB')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	    select @w_perfil_cash = isnull (pa_smallint, 78) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCASH'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	        select @w_perfil_cash = isnull (pa_smallint, 84) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCMBM'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_celular,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_celular,'') <> ''    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'A',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end --if @i_operacion = 'I' 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if @i_operacion = 'E'  -- Crear cliente desde cero en la tabla bv_ente_servicio MC--
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @i_estado             = 'V',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user        = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='MAIL'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user              = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo_cliente      = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_gasa              = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'P',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_srv          = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_lsrv         = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_operacion    = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_tipo         = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_categoria    = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_sector       = 'COMERCIAL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_notificacion = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_autorizado   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_origen_ente  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_segmento     = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_subsegmento  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_ssl		   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('jusp_oper_autorizado_cm') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_oper_autorizado_cm>>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERING PROCEDURE jusp_oper_autorizado_cm>>>'
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0    
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0 
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0 
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_op_inicio_sesion.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER procedure [dbo].[jusp_op_inicio_sesion](@i_operacion char(1),
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: 	PRINT '<<< ALTER PROCEDURE jusp_op_inicio_sesion >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                               @i_tipo char(1)= 'N',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                               @i_descripcion varchar(50) = 'INICIO DE SESION EXITOSO PROXY JURIDICO',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                               @o_ntv varchar(30) = '                              ' out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_op_inicio_sesion',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                         and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                     if @w_estado = 'B' --Usuario Bloqueado
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             if @w_estado = 'S' --Usuario Suspendido
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 if @w_estado = 'P' or @w_estado = 'A' or @w_estado = 'R'--Usuario que no han realizado la suscripcion
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                         if @w_estado = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                                             ja_estado     ='V'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                                                 set ja_estado ='D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         end -- fin @i_operacion = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'Q'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:             if @i_tipo = 'N'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                     select @w_descripcion_operacion = 'ERROR INICIANDO SESION PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             --retornar error 'ERROR INICIANDO SESION PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             select @w_descripcion_operacion = 'INICIO DE SESION EXITOSO PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'B'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                     if @w_estado = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'B'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'E'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: -- fin @i_operacion = 'E'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if @i_operacion = 'H'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: -- fin @i_operacion = 'H'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if object_id('jusp_op_inicio_sesion') is not null
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	PRINT '<<< ALTER PROCEDURE jusp_op_inicio_sesion >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	PRINT '<<< FAILED ALTERING jusp_op_inicio_sesion >>>'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_op_solicitudes.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: use webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER PROCEDURE  jusp_op_solicitudes  (  
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_op_solicitudes>>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_estado      varchar(1) = 'P',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_comentario varchar(255) = ' ',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_cedula varchar(20) = ' '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_op_solicitudes'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = 'select a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, b.jc_denom_comer_emp, b.jc_act_comer_emp, b.jc_rif_emp, b.jc_ente_emp, b.jc_ente_mis_emp '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + ', ' + convert(varchar, @w_ente) + ' as ente_bv '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = ' + CONVERT(varchar(10), @w_ente)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:      where js_estado = 'P'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' a.js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + ' and a.js_ente_emp = b.jc_ente_mis_emp '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'and js_estado = ' + char(39) + @i_estado + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'and js_estado in (' + char(39) + 'R' + char(39) + ',' + char(39) + 'P' + char(39) + ')'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = 'select a.ja_cedula, a.ja_p_nombre, a.ja_p_apellido, a.ja_email, b.pe_nombre, a.ja_perfil,  a.ja_cambio_perfil  from webuser_jur..ju_autorizados a, cob_bvirtual..bv_perfil b '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = @w_sqlaut + 'where a.ja_num_solicitud = ' + CONVERT(varchar(10), @w_num_soli)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = @w_sqlaut + ' and a.ja_perfil = b.pe_perfil'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = 'select b.jc_ente_emp, b.jc_rif_emp, a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then ' + char(39) + 'RECHAZADA' + char(39) + ' when ' + char(39) + 'A' + char(39) + ' then ' + char(39) + 'APROBADA' + char(39) + ' when ' + char(39) + 'R' + char(39
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: ) + 'then ' + char(39) + 'REVIZADA' + char(39) +  'end as estado,'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_usu_recha when ' + char(39) + 'A' + char(39) + ' then a.js_usu_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_usu_rev end as usuario,'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_fecha_recha when ' + char(39) + 'A' + char(39) + ' then a.js_fecha_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_fecha_rev end as fecha '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = b.jc_ente_mis_emp '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'and a.js_estado in (' + char(39) + 'C' + char(39) + ',' + char(39) + 'R' + char(39) + ',' + char(39) + 'A' + char(39) + ') '  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@s_user,'0') != '0'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_usu_aprob = ' + char(39) + @s_user + char(39) + ' or a.js_usu_rev = ' + char(39) + @s_user + char(39) + ' or a.js_usu_recha = ' + char(39) + @s_user + char(39) + ')'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@i_fecha_desde,'01/01/2000') != '01/01/2000'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_rev >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_recha >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ')'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@i_fecha_hasta,'01/01/2000') != '01/01/2000'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_rev <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_recha <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ')'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'C'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'U'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if @i_num_soli <> 0 and @i_estado <> 'P'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sql = 'update webuser_jur..ju_solicitud set js_estado = ' + char(39) + @i_estado + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_estado = 'A'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @w_sql = @w_sql + ' , js_usu_aprob = ' + char(39) + @s_user + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @w_sql = @w_sql + ' , js_fecha_aprob = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       if @i_estado = 'R'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         select @w_sql = @w_sql + ' , js_usu_rev = ' + char(39) + @s_user + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         select @w_sql = @w_sql + ' , js_fecha_rev = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         if @i_estado = 'C'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_usu_recha = ' + char(39) + @s_user + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_fecha_recha = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_comen_cancel = ' + char(39) + @i_comentario + char(39)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sql = @w_sql + ' where js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- aqui debe cambiar el estatus de la ju_autorizado a 'E' porque la solicitud fue cancelada  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        if @i_estado = 'C'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     set ja_estado='E'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'U'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'A'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'A'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('jusp_op_solicitudes') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_op_solicitudes>>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERING PROCEDURE jusp_op_solicitudes>>>'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_valida_dato.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: use webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER procedure jusp_valida_dato (
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE dbo.jusp_valida_dato >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @o_valiusu     varchar(1) = ' ' out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @o_valiser     varchar(1) = ' ' out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @o_ntv         varchar(30) = ' ' out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_valida_dato'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:    select @o_valiser = 'N', @o_valiusu = 'N'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @w_estado = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @w_estado = 'A' or @w_estado = 'R' or @w_estado = 'P'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @o_valiser = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @o_valiusu = 'S', @o_ntv = @w_ntv, @o_ente = @w_ente
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('dbo.jusp_valida_dato') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE dbo.jusp_valida_dato >>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERTING PROCEDURE dbo.jusp_valida_dato >>>'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\jusp_val_autorizado.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: use webuser_jur
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO: ALTER Procedure jusp_val_autorizado(  
+    
+    EXPRESION: alter proc
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_val_autorizado>>>'
+    
+    EXPRESION: *=
+    VECES: 1
+    REGISTRO: *=
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: @i_login             varchar(20) = ' '   
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_val_autorizado'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18522,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_producto', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18519,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_perfil', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18580,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_medio_envio', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @w_renovable ='N',      
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:      @s_ssn,@s_ssn,18548,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_login', @s_lsrv, @s_srv,      
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: IF OBJECT_ID('jusp_val_autorizado') IS NOT NULL
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< ALTER PROCEDURE jusp_val_autorizado>>>'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     PRINT '<<< FAILED ALTERING PROCEDURE jusp_val_autorizado>>>'
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO:   if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: while @@fetch_status = 0  
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_datos_cliente_valida_clave.sp
+
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE PROCEDURE [dbo].[jusp_datos_cliente_valida_clave]
+    
+    EXPRESION: *=
+    VECES: 1
+    REGISTRO: 					and ja_ntv *= me_login
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 					,ja_p_apellido + ' ' + ja_p_nombre as [nombre]
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 					and me_tipo = 'TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				select '-80', 'No existe cliente'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_oper_autorizado.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE [webuser_jur]
+    
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE Procedure [dbo].[jusp_oper_autorizado](
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_descripcion       varchar(64)  = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_login             varchar(20) = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_email             varchar (255)   = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_celular           varchar (11)   = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_alias             varchar(32) = " ",
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 28-Feb-2012  Ivan Perez        Cambio operacion 'D'      */
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 30-mar-2012  Ivan Perez        Cambio operacion 'C'      */
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 23-abril-2012 Aurymar Romero  Cambio oper='I'            */
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: /* 07-abril-2014 Jose Ñañez      Cambio oper='I' elimina    */
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_vigencia     varchar(1) = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_autorizado        char(1) = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_autorizacion varchar (10) = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_oper_autorizado'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'I'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	set @w_ntv = ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and ja_cambio_perfil = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if (@w_ntv <> '') and (@w_ntv is not null)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'E'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				ja_imp_carta = 'S'          
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if (@w_ntv <> '') and (@w_ntv is not null)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	  @i_tipo_cliente      = 'C',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_estado             = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_celular,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_celular,'') <> ''    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'A',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end --if @i_operacion = 'I' 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @i_estado             = 'V',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user        = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='MAIL'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user              = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo_cliente      = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_gasa              = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'P',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_srv          = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_lsrv         = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_operacion    = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_tipo         = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_categoria    = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_sector       = 'COMERCIAL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_notificacion = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_autorizado   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_origen_ente  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_segmento     = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_subsegmento  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_ssl		   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0    
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0 
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0 
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_oper_autorizado_cm.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE [webuser_jur]
+    
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE Procedure [dbo].[jusp_oper_autorizado_cm](
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_descripcion       varchar(64)  = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_login             varchar(20) = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_email             varchar (255)   = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_celular           varchar (11)   = " ",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_alias             varchar(32) = " ",
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_vigencia     varchar(1) = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_autorizado        char(1) = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_tipo_autorizacion varchar (10) = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_oper_autorizado_cm'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'I'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	set @w_ntv = ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and ja_cambio_perfil = 'S'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if (@w_ntv <> '') and (@w_ntv is not null)  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'E'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			set ja_estado = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 				ja_imp_carta = 'S'          
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if (@w_ntv <> '') and (@w_ntv is not null)
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	  @i_tipo_cliente      = 'C',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		 lo_otp = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		 lo_otp_estado = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	     lo_estado = 'A',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	     lo_cultura = 'ES-VE'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             where tabla in (select codigo from cobis..cl_tabla where tabla = 'bv_servicios_cm') 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             and estado = 'V') 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			   @i_estado             = 'V',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_servicio_cm = (select isnull (pa_tinyint, 12) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'CCASH')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	select @w_servicio_bm = (select isnull (pa_smallint, 13) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'MB')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	    select @w_perfil_cash = isnull (pa_smallint, 78) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCASH'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	        select @w_perfil_cash = isnull (pa_smallint, 84) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCMBM'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_email,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if isnull(@i_celular,'') <> ''  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	end--if isnull(@i_celular,'') <> ''    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'A',  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end --if @i_operacion = 'I' 
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if @i_operacion = 'E'  -- Crear cliente desde cero en la tabla bv_ente_servicio MC--
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 			 @i_estado             = 'V',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user        = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='TELF'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'TELF',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		and me_tipo='MAIL'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user               = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo               = 'MAIL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @s_user              = 'SYSTEM',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_tipo_cliente      = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		   @i_gasa              = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 		ja_estado = 'P',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_srv          = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @s_lsrv         = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_operacion    = 'I',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_tipo         = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_categoria    = 'C',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_sector       = 'COMERCIAL',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_notificacion = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_autorizado   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_origen_ente  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_segmento     = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_subsegmento  = '     ',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        @i_ssl		   = 'S',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_srv                = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @s_lsrv               = 'GASAB',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:               @i_operacion          = 'I',
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0    
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	if @@fetch_status <> 0
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	while @@fetch_status = 0 
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: 	end--while @@fetch_status = 0 
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_op_inicio_sesion.sp
+
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE procedure [dbo].[jusp_op_inicio_sesion](@i_operacion char(1),
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:                                               @i_descripcion varchar(50) = "INICIO DE SESION EXITOSO PROXY JURIDICO",
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:                                               @o_ntv varchar(30) = "                              " out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                               @i_tipo char(1)= 'N',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_op_inicio_sesion',
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                         and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                     if @w_estado = 'B' --Usuario Bloqueado
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             if @w_estado = 'S' --Usuario Suspendido
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 if @w_estado = 'P' or @w_estado = 'A' or @w_estado = 'R'--Usuario que no han realizado la suscripcion
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                         if @w_estado = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                                             ja_estado     ='V'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                                                 set ja_estado ='D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         end -- fin @i_operacion = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'Q'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                 and ja_estado <> 'E')
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:             if @i_tipo = 'N'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                                     select @w_descripcion_operacion = 'ERROR INICIANDO SESION PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             --retornar error 'ERROR INICIANDO SESION PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                             select @w_descripcion_operacion = 'INICIO DE SESION EXITOSO PROXY JURIDICO'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'D'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'I'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'B'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:                     if @w_estado = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- fin @i_operacion = 'B'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_operacion = 'E'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: -- fin @i_operacion = 'E'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: 	if @i_operacion = 'H'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: -- fin @i_operacion = 'H'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_op_solicitudes.sp
+
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE Procedure  jusp_op_solicitudes  (    
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_comentario varchar(255) = " ",    
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @i_cedula varchar(20) = " "    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   @i_estado      varchar(1) = 'P',    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_op_solicitudes'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'S'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = 'select a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, b.jc_denom_comer_emp, b.jc_act_comer_emp, b.jc_rif_emp, b.jc_ente_emp, b.jc_ente_mis_emp '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + ', ' + convert(varchar, @w_ente) + ' as ente_bv '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = ' + CONVERT(varchar(10), @w_ente)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:      where js_estado = 'P'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' a.js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + ' and a.js_ente_emp = b.jc_ente_mis_emp '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'and js_estado = ' + char(39) + @i_estado + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + 'and js_estado in (' + char(39) + 'R' + char(39) + ',' + char(39) + 'P' + char(39) + ')'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = 'select a.ja_cedula, a.ja_p_nombre, a.ja_p_apellido, a.ja_email, b.pe_nombre, a.ja_perfil,  a.ja_cambio_perfil  from webuser_jur..ju_autorizados a, cob_bvirtual..bv_perfil b '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = @w_sqlaut + 'where a.ja_num_solicitud = ' + CONVERT(varchar(10), @w_num_soli)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlaut = @w_sqlaut + ' and a.ja_perfil = b.pe_perfil'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'S'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = 'select b.jc_ente_emp, b.jc_rif_emp, a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, '   
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then ' + char(39) + 'RECHAZADA' + char(39) + ' when ' + char(39) + 'A' + char(39) + ' then ' + char(39) + 'APROBADA' + char(39) + ' when ' + char(39) + 'R' + char(3
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: ) + 'then ' + char(39) + 'REVIZADA' + char(39) +  'end as estado,'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_usu_recha when ' + char(39) + 'A' + char(39) + ' then a.js_usu_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_usu_rev end as usuario,'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_fecha_recha when ' + char(39) + 'A' + char(39) + ' then a.js_fecha_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_fecha_rev end as fecha '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = b.jc_ente_mis_emp '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   select @w_sqlsol = @w_sqlsol + 'and a.js_estado in (' + char(39) + 'C' + char(39) + ',' + char(39) + 'R' + char(39) + ',' + char(39) + 'A' + char(39) + ') '    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@s_user,'0') != '0'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_usu_aprob = ' + char(39) + @s_user + char(39) + ' or a.js_usu_rev = ' + char(39) + @s_user + char(39) + ' or a.js_usu_recha = ' + char(39) + @s_user + char(39) + ')'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@i_fecha_desde,'01/01/2000') != '01/01/2000'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_rev >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_recha >= ' + char(39) + co
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: nvert(varchar,@i_fecha_desde,101) + char(39) + ')'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if isnull(@i_fecha_hasta,'01/01/2000') != '01/01/2000'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_rev <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_recha <= ' + char(39) + co
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: nvert(varchar,@i_fecha_hasta,101) + char(39) + ')'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'C'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'U'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:   if @i_num_soli <> 0 and @i_estado <> 'P'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sql = 'update webuser_jur..ju_solicitud set js_estado = ' + char(39) + @i_estado + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @i_estado = 'A'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @w_sql = @w_sql + ' , js_usu_aprob = ' + char(39) + @s_user + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @w_sql = @w_sql + ' , js_fecha_aprob = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       if @i_estado = 'R'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         select @w_sql = @w_sql + ' , js_usu_rev = ' + char(39) + @s_user + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         select @w_sql = @w_sql + ' , js_fecha_rev = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:         if @i_estado = 'C'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_usu_recha = ' + char(39) + @s_user + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_fecha_recha = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:           select @w_sql = @w_sql + ' , js_comen_cancel = ' + char(39) + @i_comentario + char(39)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @w_sql = @w_sql + ' where js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     -- aqui debe cambiar el estatus de la ju_autorizado a 'E' porque la solicitud fue cancelada    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:        if @i_estado = 'C'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     set ja_estado='E'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'U'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'A'    
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'A'    
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_valida_dato.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE [webuser_jur]
+    
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: create procedure [dbo].[jusp_valida_dato] (
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @o_valiusu     varchar(1) = " " out,
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @o_valiser     varchar(1) = " " out,
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO:   @o_ntv         varchar(30) = " " out,
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select @w_sp_name = 'jusp_valida_dato'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: if @i_operacion = 'C'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:    select @o_valiser = 'N', @o_valiusu = 'N'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @w_estado = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     if @w_estado = 'A' or @w_estado = 'R' or @w_estado = 'P'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       select @o_valiser = 'S'
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:     select @o_valiusu = 'S', @o_ntv = @w_ntv, @o_ente = @w_ente
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: end -- fin @i_operacion = 'C'
+    
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_val_autorizado.sp
+
+    EXPRESION: use 
+    VECES: 1
+    REGISTRO: USE [webuser_jur]
+    
+    EXPRESION: create proc
+    VECES: 1
+    REGISTRO: CREATE Procedure [dbo].[jusp_val_autorizado](  
+    
+    EXPRESION: "
+    VECES: 1
+    REGISTRO: @i_login             varchar(20) = " "   
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO: select  @w_sp_name  = 'jusp_val_autorizado'  
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18522,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_producto', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18519,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_perfil', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @s_ssn,18580,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_medio_envio', @s_lsrv, @s_srv,        
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @i_cliente, 1, @i_perfil, @i_login,'A'       
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:       @w_renovable ='N',      
+    
+    EXPRESION: '
+    VECES: 1
+    REGISTRO:      @s_ssn,@s_ssn,18548,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_login', @s_lsrv, @s_srv,      
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO:   if @@fetch_status <> 0  
+    
+    EXPRESION: @@fetch_status
+    VECES: 1
+    REGISTRO: while @@fetch_status = 0  
+    

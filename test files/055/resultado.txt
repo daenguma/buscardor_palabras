@@ -1,0 +1,270 @@
+
+C:\Users\daeng\Desktop\Contador Palabras\055\aaaaaaa.txt
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : /*   PRODUCTO:        webuser_jur                           */ 
+EXPRESION : left outer join 
+ENCONTRADA : SI 
+COINCIDENCIA : 					LEFT OUTER JOIN cob_bvirtual..bv_medio_envio ON ja_ntv = me_login 
+EXPRESION : right outer join 
+ENCONTRADA : NO 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : NO 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : 					,ja_p_apellido + ' ' + ja_p_nombre as [nombre] 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : NO 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 
+
+C:\Users\daeng\Desktop\Contador Palabras\055\sp_atmsqr_concilia_s7b.sp
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : USE cob_atm_his 
+EXPRESION : left outer join 
+ENCONTRADA : NO 
+EXPRESION : right outer join 
+ENCONTRADA : SI 
+COINCIDENCIA :        right outer join cobis..cl_catalogo 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : NO 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : select @w_id_red = 'SU7B', 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : SI 
+COINCIDENCIA :        'Hora de la transaccion' = substring(replace(convert(varchar, tm_hora, 114), ':', ''), 1, 8), 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 
+
+C:\Users\daeng\Desktop\Contador Palabras\055\sp_filtro_atm.sp
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : USE cob_atm_his 
+EXPRESION : left outer join 
+ENCONTRADA : NO 
+EXPRESION : right outer join 
+ENCONTRADA : NO 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : SI 
+COINCIDENCIA : 	from cob_remesas_his..re_tran_monet_his with(index(re_tran_monet_his_fecha_Key)) 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : 	        'N', th_estado_ejecucion, th_tipo_ejecucion, 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : NO 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 
+
+C:\Users\daeng\Desktop\Contador Palabras\055\sp_filtro_mtr_atm.sp
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : use cob_atm_his 
+EXPRESION : left outer join 
+ENCONTRADA : NO 
+EXPRESION : right outer join 
+ENCONTRADA : NO 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : SI 
+COINCIDENCIA :           from cob_remesas_his..re_tran_monet_his with(index(re_tran_monet_his_fecha_Key)) 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : select @w_sp_name = 'sp_filtro_mtr_atm', 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : NO 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 
+
+C:\Users\daeng\Desktop\Contador Palabras\055\sp_filtro_mtr_atm_aux.sp
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : USE cob_atm_his 
+EXPRESION : left outer join 
+ENCONTRADA : NO 
+EXPRESION : right outer join 
+ENCONTRADA : NO 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : SI 
+COINCIDENCIA : 	from cob_remesas..re_tran_monet with(index(re_tran_monet_fecha_Key)) 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : 	        tm_correccion, tm_valor, 'N', tm_estado_ejecucion, 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : NO 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 
+
+C:\Users\daeng\Desktop\Contador Palabras\055\sp_paso_historico_maestro.sp
+EXPRESION : use 
+ENCONTRADA : SI 
+COINCIDENCIA : USE cob_atm_his 
+EXPRESION : left outer join 
+ENCONTRADA : NO 
+EXPRESION : right outer join 
+ENCONTRADA : NO 
+EXPRESION : *= 
+ENCONTRADA : NO 
+EXPRESION : =* 
+ENCONTRADA : NO 
+EXPRESION : with(index 
+ENCONTRADA : NO 
+EXPRESION : " 
+ENCONTRADA : NO 
+EXPRESION : ' 
+ENCONTRADA : SI 
+COINCIDENCIA : IF OBJECT_ID('dbo.sp_paso_historico_maestro') IS NOT NULL 
+EXPRESION : dump 
+ENCONTRADA : NO 
+EXPRESION : load 
+ENCONTRADA : NO 
+EXPRESION : backup 
+ENCONTRADA : NO 
+EXPRESION : restore 
+ENCONTRADA : NO 
+EXPRESION : order by 
+ENCONTRADA : NO 
+EXPRESION : @@sqlstatus 
+ENCONTRADA : NO 
+EXPRESION : @@fetch_status 
+ENCONTRADA : NO 
+EXPRESION : holdlock 
+ENCONTRADA : NO 
+EXPRESION : str_replace 
+ENCONTRADA : NO 
+EXPRESION : replace 
+ENCONTRADA : NO 
+EXPRESION : raiserror 
+ENCONTRADA : NO 
+EXPRESION : with allow_dup_row 
+ENCONTRADA : NO 

@@ -1,0 +1,99 @@
+* {
+    font-family: 'Source Code Pro', monospace;
+}
+
+b {
+    background-color: white;
+}
+
+div.index-div{
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    background-color: #449b4b;
+    /* height: 300px;
+    width: 300px; */
+}
+
+div.index-form-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+input[type=text] {
+    width: 500px;
+    height: 40px;
+}
+
+input[type=submit] {
+    height: 45px;
+    width: 60px;
+}
+
+label {
+    font-size: 60px;
+    color: azure;
+}
+
+div.form-div {
+    position: sticky;
+    top: 0px;
+    padding: 10px;
+    background-color: white;
+    height: 200px;
+    text-align: center;
+}
+
+div.table-div {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+}
+
+#td1{
+    text-align: center;
+}
+
+#td2 {
+    text-align: justify;
+}
+
+tr:nth-child(even) {background-color: #d2d2d2;}
+
+tr:first-child {background-color: #449b4b;}
+
+
+
+ul {
+    list-style: none;
+}
+
+a.a_result:link {
+    color: black;
+}
+
+a.a_result:visited {
+    color: black;
+}

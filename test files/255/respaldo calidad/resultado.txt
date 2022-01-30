@@ -1,0 +1,415 @@
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_datos_cliente_valida_clave.sp
+Expresion USE  encontrada: NO
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE PROCEDURE [dbo].[jusp_datos_cliente_valida_clave]
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: SI CONINCIDENCIA EN and ja_ntv *= me_login
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI CONINCIDENCIA EN ,ja_p_apellido + ' ' + ja_p_nombre as [nombre]
+Expresion ' encontrada: SI CONINCIDENCIA EN and me_tipo = 'TELF'
+Expresion ' encontrada: SI CONINCIDENCIA EN select '-80', 'No existe cliente'
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_oper_autorizado.sp
+Expresion USE  encontrada: SI CONINCIDENCIA EN USE [webuser_jur]
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE Procedure [dbo].[jusp_oper_autorizado](
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_descripcion       varchar(64)  = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_login             varchar(20) = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_email             varchar (255)   = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_celular           varchar (11)   = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_alias             varchar(32) = " ",
+Expresion ' encontrada: SI CONINCIDENCIA EN /* 28-Feb-2012  Ivan Perez        Cambio operacion 'D'      */
+Expresion ' encontrada: SI CONINCIDENCIA EN /* 30-mar-2012  Ivan Perez        Cambio operacion 'C'      */
+Expresion ' encontrada: SI CONINCIDENCIA EN /* 23-abril-2012 Aurymar Romero  Cambio oper='I'            */
+Expresion ' encontrada: SI CONINCIDENCIA EN /* 07-abril-2014 Jose Ñañez      Cambio oper='I' elimina    */
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_vigencia     varchar(1) = 'I',
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_autorizado        char(1) = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_autorizacion varchar (10) = 'A',
+Expresion ' encontrada: SI CONINCIDENCIA EN select  @w_sp_name  = 'jusp_oper_autorizado'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'I'  
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+Expresion ' encontrada: SI CONINCIDENCIA EN set @w_ntv = ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN and ja_cambio_perfil = 'S'  
+Expresion ' encontrada: SI CONINCIDENCIA EN if (@w_ntv <> '') and (@w_ntv is not null)  
+Expresion ' encontrada: SI CONINCIDENCIA EN set ja_estado = 'E'  
+Expresion ' encontrada: SI CONINCIDENCIA EN set ja_estado = 'V',  
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_imp_carta = 'S'          
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if (@w_ntv <> '') and (@w_ntv is not null)    
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_cliente      = 'C',  
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_estado             = 'V',  
+Expresion ' encontrada: SI CONINCIDENCIA EN if isnull(@i_email,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'MAIL',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if isnull(@i_email,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN if isnull(@i_celular,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'TELF',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if isnull(@i_celular,'') <> ''    
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_estado = 'A',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end --if @i_operacion = 'I' 
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN  @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN  @i_estado             = 'V',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user        = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN and me_tipo='TELF'
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'TELF',
+Expresion ' encontrada: SI CONINCIDENCIA EN and me_tipo='MAIL'
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'MAIL',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user              = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo_cliente      = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_gasa              = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_estado = 'P',
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- if @i_operacion = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'C'
+Expresion ' encontrada: SI CONINCIDENCIA EN        @s_srv          = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @s_lsrv         = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_operacion    = 'I',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_tipo         = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_categoria    = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_sector       = 'COMERCIAL',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_notificacion = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_autorizado   = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_origen_ente  = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_segmento     = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_subsegmento  = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_ssl   = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_srv                = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_lsrv               = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @i_operacion          = 'I',
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN if @@fetch_status <> 0  
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN while @@fetch_status = 0  
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN end--while @@fetch_status = 0    
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN if @@fetch_status <> 0
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN while @@fetch_status = 0 
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN end--while @@fetch_status = 0 
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_oper_autorizado_cm.sp
+Expresion USE  encontrada: SI CONINCIDENCIA EN USE [webuser_jur]
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE Procedure [dbo].[jusp_oper_autorizado_cm](
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_descripcion       varchar(64)  = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_login             varchar(20) = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_email             varchar (255)   = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_celular           varchar (11)   = " ",
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_alias             varchar(32) = " ",
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_vigencia     varchar(1) = 'I',
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_autorizado        char(1) = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_autorizacion varchar (10) = 'A',
+Expresion ' encontrada: SI CONINCIDENCIA EN select  @w_sp_name  = 'jusp_oper_autorizado_cm'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'I'  
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_perfil_um = pa_int from cobis..cl_parametro where pa_nemonico = 'PAUM'  
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_perfil_ge = pa_int from cobis..cl_parametro where pa_nemonico = 'PAGE'  
+Expresion ' encontrada: SI CONINCIDENCIA EN set @w_ntv = ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN and ja_cambio_perfil = 'S'  
+Expresion ' encontrada: SI CONINCIDENCIA EN if (@w_ntv <> '') and (@w_ntv is not null)  
+Expresion ' encontrada: SI CONINCIDENCIA EN set ja_estado = 'E'  
+Expresion ' encontrada: SI CONINCIDENCIA EN set ja_estado = 'V',  
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_imp_carta = 'S'          
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if (@w_ntv <> '') and (@w_ntv is not null)
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_tipo_cliente      = 'C',  
+Expresion ' encontrada: SI CONINCIDENCIA EN  lo_otp = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN  lo_otp_estado = 'A',
+Expresion ' encontrada: SI CONINCIDENCIA EN      lo_estado = 'A',
+Expresion ' encontrada: SI CONINCIDENCIA EN      lo_cultura = 'ES-VE'
+Expresion ' encontrada: SI CONINCIDENCIA EN                             where tabla in (select codigo from cobis..cl_tabla where tabla = 'bv_servicios_cm') 
+Expresion ' encontrada: SI CONINCIDENCIA EN                             and estado = 'V') 
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_estado             = 'V',  
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_servicio_cm = (select isnull (pa_tinyint, 12) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'CCASH')
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_servicio_bm = (select isnull (pa_smallint, 13) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'MB')
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_perfil_cash = isnull (pa_smallint, 78) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCASH'
+Expresion ' encontrada: SI CONINCIDENCIA EN         select @w_perfil_cash = isnull (pa_smallint, 84) from cobis..cl_parametro where pa_producto = 'BV' and pa_nemonico = 'PFCMBM'
+Expresion ' encontrada: SI CONINCIDENCIA EN if isnull(@i_email,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'MAIL',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if isnull(@i_email,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN if isnull(@i_celular,'') <> ''  
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'TELF',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end--if isnull(@i_celular,'') <> ''    
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_estado = 'A',  
+Expresion ' encontrada: SI CONINCIDENCIA EN end --if @i_operacion = 'I' 
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'E'  -- Crear cliente desde cero en la tabla bv_ente_servicio MC--
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_srv                = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_lsrv               = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @i_operacion          = 'I',
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN  @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN  @i_estado             = 'V',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user        = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN and me_tipo='TELF'
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'TELF',
+Expresion ' encontrada: SI CONINCIDENCIA EN and me_tipo='MAIL'
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user               = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo               = 'MAIL',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @s_user              = 'SYSTEM',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_tipo_cliente      = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN    @i_gasa              = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN ja_estado = 'P',
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- if @i_operacion = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'C'
+Expresion ' encontrada: SI CONINCIDENCIA EN        @s_srv          = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @s_lsrv         = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_operacion    = 'I',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_tipo         = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_categoria    = 'C',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_sector       = 'COMERCIAL',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_notificacion = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_autorizado   = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_origen_ente  = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_segmento     = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_subsegmento  = '     ',
+Expresion ' encontrada: SI CONINCIDENCIA EN        @i_ssl   = 'S',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_srv                = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @s_lsrv               = 'GASAB',
+Expresion ' encontrada: SI CONINCIDENCIA EN               @i_operacion          = 'I',
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN if @@fetch_status <> 0  
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN while @@fetch_status = 0  
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN end--while @@fetch_status = 0    
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN if @@fetch_status <> 0
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN while @@fetch_status = 0 
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN end--while @@fetch_status = 0 
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_op_inicio_sesion.sp
+Expresion USE  encontrada: NO
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE procedure [dbo].[jusp_op_inicio_sesion](@i_operacion char(1),
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN                                               @i_descripcion varchar(50) = "INICIO DE SESION EXITOSO PROXY JURIDICO",
+Expresion " encontrada: SI CONINCIDENCIA EN                                               @o_ntv varchar(30) = "                              " out,
+Expresion ' encontrada: SI CONINCIDENCIA EN                                               @i_tipo char(1)= 'N',
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_sp_name = 'jusp_op_inicio_sesion',
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN                         and ja_estado <> 'E')
+Expresion ' encontrada: SI CONINCIDENCIA EN                     if @w_estado = 'B' --Usuario Bloqueado
+Expresion ' encontrada: SI CONINCIDENCIA EN                             if @w_estado = 'S' --Usuario Suspendido
+Expresion ' encontrada: SI CONINCIDENCIA EN                                 if @w_estado = 'P' or @w_estado = 'A' or @w_estado = 'R'--Usuario que no han realizado la suscripcion
+Expresion ' encontrada: SI CONINCIDENCIA EN                                         if @w_estado = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN                                                             ja_estado     ='V'
+Expresion ' encontrada: SI CONINCIDENCIA EN                                                                 set ja_estado ='D'
+Expresion ' encontrada: SI CONINCIDENCIA EN         end -- fin @i_operacion = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'Q'
+Expresion ' encontrada: SI CONINCIDENCIA EN                                 and ja_estado <> 'E')
+Expresion ' encontrada: SI CONINCIDENCIA EN                                 and ja_estado <> 'E')
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'I'
+Expresion ' encontrada: SI CONINCIDENCIA EN             if @i_tipo = 'N'
+Expresion ' encontrada: SI CONINCIDENCIA EN                                     select @w_descripcion_operacion = 'ERROR INICIANDO SESION PROXY JURIDICO'
+Expresion ' encontrada: SI CONINCIDENCIA EN                             --retornar error 'ERROR INICIANDO SESION PROXY JURIDICO'
+Expresion ' encontrada: SI CONINCIDENCIA EN                             select @w_descripcion_operacion = 'INICIO DE SESION EXITOSO PROXY JURIDICO'
+Expresion ' encontrada: SI CONINCIDENCIA EN     -- fin @i_operacion = 'I'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'D'
+Expresion ' encontrada: SI CONINCIDENCIA EN     -- fin @i_operacion = 'I'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'B'
+Expresion ' encontrada: SI CONINCIDENCIA EN                     if @w_estado = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN     -- fin @i_operacion = 'B'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_operacion = 'E'
+Expresion ' encontrada: SI CONINCIDENCIA EN -- fin @i_operacion = 'E'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'H'
+Expresion ' encontrada: SI CONINCIDENCIA EN -- fin @i_operacion = 'H'
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_op_solicitudes.sp
+Expresion USE  encontrada: NO
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE Procedure  jusp_op_solicitudes  (    
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_comentario varchar(255) = " ",    
+Expresion " encontrada: SI CONINCIDENCIA EN   @i_cedula varchar(20) = " "    
+Expresion ' encontrada: SI CONINCIDENCIA EN   @i_estado      varchar(1) = 'P',    
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_sp_name = 'jusp_op_solicitudes'    
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'S'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = 'select a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, b.jc_denom_comer_emp, b.jc_act_comer_emp, b.jc_rif_emp, b.jc_ente_emp, b.jc_ente_mis_emp '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + ', ' + convert(varchar, @w_ente) + ' as ente_bv '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = ' + CONVERT(varchar(10), @w_ente)    
+Expresion ' encontrada: SI CONINCIDENCIA EN      where js_estado = 'P'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + ' a.js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + ' and a.js_ente_emp = b.jc_ente_mis_emp '    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + 'and js_estado = ' + char(39) + @i_estado + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + 'and js_estado in (' + char(39) + 'R' + char(39) + ',' + char(39) + 'P' + char(39) + ')'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlaut = 'select a.ja_cedula, a.ja_p_nombre, a.ja_p_apellido, a.ja_email, b.pe_nombre, a.ja_perfil,  a.ja_cambio_perfil  from webuser_jur..ju_autorizados a, cob_bvirtual..bv_perfil b '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlaut = @w_sqlaut + 'where a.ja_num_solicitud = ' + CONVERT(varchar(10), @w_num_soli)    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlaut = @w_sqlaut + ' and a.ja_perfil = b.pe_perfil'    
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- fin @i_operacion = 'S'    
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'C'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = 'select b.jc_ente_emp, b.jc_rif_emp, a.js_num_solicitud, a.js_fecha_creacion, b.jc_nombre_emp, '   
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then ' + char(39) + 'RECHAZADA' + char(39) + ' when ' + char(39) + 'A' + char(39) + ' then ' + char(39) + 'APROBADA' + char(39) + ' when ' + char(39) + 'R' + char(3
+Expresion ' encontrada: SI CONINCIDENCIA EN ) + 'then ' + char(39) + 'REVIZADA' + char(39) +  'end as estado,'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_usu_recha when ' + char(39) + 'A' + char(39) + ' then a.js_usu_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_usu_rev end as usuario,'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'case a.js_estado when ' + char(39) + 'C' + char(39) + ' then a.js_fecha_recha when ' + char(39) + 'A' + char(39) + ' then a.js_fecha_aprob when ' + char(39) + 'R' + char(39) + 'then a.js_fecha_rev end as fecha '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'from webuser_jur..ju_solicitud a, webuser_jur..ju_cliente b where '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'a.js_ente_emp = b.jc_ente_mis_emp '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   select @w_sqlsol = @w_sqlsol + 'and a.js_estado in (' + char(39) + 'C' + char(39) + ',' + char(39) + 'R' + char(39) + ',' + char(39) + 'A' + char(39) + ') '    
+Expresion ' encontrada: SI CONINCIDENCIA EN   if isnull(@s_user,'0') != '0'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + ' and (a.js_usu_aprob = ' + char(39) + @s_user + char(39) + ' or a.js_usu_rev = ' + char(39) + @s_user + char(39) + ' or a.js_usu_recha = ' + char(39) + @s_user + char(39) + ')'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   if isnull(@i_fecha_desde,'01/01/2000') != '01/01/2000'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_rev >= ' + char(39) + convert(varchar,@i_fecha_desde,101) + char(39) + ' or a.js_fecha_recha >= ' + char(39) + co
+Expresion ' encontrada: SI CONINCIDENCIA EN nvert(varchar,@i_fecha_desde,101) + char(39) + ')'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   if isnull(@i_fecha_hasta,'01/01/2000') != '01/01/2000'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sqlsol = @w_sqlsol + ' and (a.js_fecha_aprob <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_rev <= ' + char(39) + convert(varchar,@i_fecha_hasta,101) + char(39) + ' or a.js_fecha_recha <= ' + char(39) + co
+Expresion ' encontrada: SI CONINCIDENCIA EN nvert(varchar,@i_fecha_hasta,101) + char(39) + ')'    
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- fin @i_operacion = 'C'    
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'U'    
+Expresion ' encontrada: SI CONINCIDENCIA EN   if @i_num_soli <> 0 and @i_estado <> 'P'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sql = 'update webuser_jur..ju_solicitud set js_estado = ' + char(39) + @i_estado + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @i_estado = 'A'    
+Expresion ' encontrada: SI CONINCIDENCIA EN       select @w_sql = @w_sql + ' , js_usu_aprob = ' + char(39) + @s_user + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN       select @w_sql = @w_sql + ' , js_fecha_aprob = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN       if @i_estado = 'R'    
+Expresion ' encontrada: SI CONINCIDENCIA EN         select @w_sql = @w_sql + ' , js_usu_rev = ' + char(39) + @s_user + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN         select @w_sql = @w_sql + ' , js_fecha_rev = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN         if @i_estado = 'C'    
+Expresion ' encontrada: SI CONINCIDENCIA EN           select @w_sql = @w_sql + ' , js_usu_recha = ' + char(39) + @s_user + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN           select @w_sql = @w_sql + ' , js_fecha_recha = ' + char(39) + CONVERT(varchar(30), getdate()) + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN           select @w_sql = @w_sql + ' , js_comen_cancel = ' + char(39) + @i_comentario + char(39)    
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @w_sql = @w_sql + ' where js_num_solicitud = ' + CONVERT(varchar(10), @i_num_soli)    
+Expresion ' encontrada: SI CONINCIDENCIA EN     -- aqui debe cambiar el estatus de la ju_autorizado a 'E' porque la solicitud fue cancelada    
+Expresion ' encontrada: SI CONINCIDENCIA EN        if @i_estado = 'C'    
+Expresion ' encontrada: SI CONINCIDENCIA EN     set ja_estado='E'    
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- fin @i_operacion = 'U'    
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'A'    
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- fin @i_operacion = 'A'    
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_valida_dato.sp
+Expresion USE  encontrada: SI CONINCIDENCIA EN USE [webuser_jur]
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN create procedure [dbo].[jusp_valida_dato] (
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN   @o_valiusu     varchar(1) = " " out,
+Expresion " encontrada: SI CONINCIDENCIA EN   @o_valiser     varchar(1) = " " out,
+Expresion " encontrada: SI CONINCIDENCIA EN   @o_ntv         varchar(30) = " " out,
+Expresion ' encontrada: SI CONINCIDENCIA EN select @w_sp_name = 'jusp_valida_dato'
+Expresion ' encontrada: SI CONINCIDENCIA EN if @i_operacion = 'C'
+Expresion ' encontrada: SI CONINCIDENCIA EN    select @o_valiser = 'N', @o_valiusu = 'N'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @w_estado = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN     if @w_estado = 'A' or @w_estado = 'R' or @w_estado = 'P'
+Expresion ' encontrada: SI CONINCIDENCIA EN       select @o_valiser = 'S'
+Expresion ' encontrada: SI CONINCIDENCIA EN     select @o_valiusu = 'S', @o_ntv = @w_ntv, @o_ente = @w_ente
+Expresion ' encontrada: SI CONINCIDENCIA EN end -- fin @i_operacion = 'C'
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\255\respaldo calidad\jusp_val_autorizado.sp
+Expresion USE  encontrada: SI CONINCIDENCIA EN USE [webuser_jur]
+Expresion CREATE PROC encontrada: SI CONINCIDENCIA EN CREATE Procedure [dbo].[jusp_val_autorizado](  
+Expresion ALTER PROC encontrada: NO
+Expresion LEFT OUTER JOIN encontrada: NO
+Expresion RIGHT OUTER JOIN encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI CONINCIDENCIA EN @i_login             varchar(20) = " "   
+Expresion ' encontrada: SI CONINCIDENCIA EN select  @w_sp_name  = 'jusp_val_autorizado'  
+Expresion ' encontrada: SI CONINCIDENCIA EN       @s_ssn,18522,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_producto', @s_lsrv, @s_srv,        
+Expresion ' encontrada: SI CONINCIDENCIA EN       @i_cliente, 1, @i_perfil, @i_login,'A'       
+Expresion ' encontrada: SI CONINCIDENCIA EN       @s_ssn,18519,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_ente_servicio_perfil', @s_lsrv, @s_srv,        
+Expresion ' encontrada: SI CONINCIDENCIA EN       @i_cliente, 1, @i_perfil, @i_login,'A'       
+Expresion ' encontrada: SI CONINCIDENCIA EN       @s_ssn,18580,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_medio_envio', @s_lsrv, @s_srv,        
+Expresion ' encontrada: SI CONINCIDENCIA EN       @i_cliente, 1, @i_perfil, @i_login,'A'       
+Expresion ' encontrada: SI CONINCIDENCIA EN       @w_renovable ='N',      
+Expresion ' encontrada: SI CONINCIDENCIA EN      @s_ssn,@s_ssn,18548,'D',@s_date, @s_user, @s_term,@s_ofi, 'bv_login', @s_lsrv, @s_srv,      
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN   if @@fetch_status <> 0  
+Expresion @@FETCH_STATUS encontrada: SI CONINCIDENCIA EN while @@fetch_status = 0  
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO

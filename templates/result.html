@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de palabras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/normalize.css') }}"> 
+    <script src="{{ url_for('static', filename = 'js/index.js') }}" defer></script>
+    <script src="{{ url_for('static', filename = 'js/ruta.js') }}" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="table-div">
+        <p>
+            <button class = "btn-back">Regresar</button>
+            <button class = "btn-fwd">Avanzar</button>
+        </p>
+        <table>
+            <tr>
+                <th>Ruta</th>
+            </tr>
+            {% for reg in result %}
+            <tr>
+                <td><input type="checkbox"> <a class="a_result" href="{{ url_for('archivo', name=reg['RUTA']) }}">{{ reg['RUTA'] }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p>
+            <button class = "btn-back">Regresar</button>
+            <button class = "btn-fwd">Avanzar</button>
+        </p>
+    </div>
+</body>
+</html>

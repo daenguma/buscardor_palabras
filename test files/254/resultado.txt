@@ -1,0 +1,332 @@
+
+C:\Users\daeng\Desktop\Contador Palabras\254\1\Backend_CLUSTER\bv_session_activa_1mc.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\1\prod\bv_session_activa_1mc.sql
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA		-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+	LINEA		-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\1\rollback calidad\bv_session_activa_1mc.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA		-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+	LINEA		-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\prod\bvsp_mantenimiento_cliente_ssl.sql
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO PUEDE ELIMINAR UN USUARIO CON ESE ESTADO",
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA      and d.Fecha = (select TOP 1 Fecha from CLAVE where CodUsuario = @i_codUsuario order by Fecha desc)
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\prod\bvsp_mant_subcripciones_ssl.sql
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO ESTA AUTORIZADO A ELIMINAR REGISTROS",
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO PUEDE ELIMINAR UN REGISTRO CON PASO SUSCRITO",
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\prod\sp_login_web.sql
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA/***** "Buscar datos del Usuario" *****/
+Expresion " encontrada: SI
+	LINEA/***** "Usuario sin clave definida " *****/
+Expresion " encontrada: SI
+	LINEA	-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA	order by Fecha desc
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\Resin2008\BackEnd\SPSQL\sp_login_web.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA	order by Fecha desc
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\rollback calidad\bvsp_mantenimiento_cliente_ssl.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO PUEDE ELIMINAR UN USUARIO CON ESE ESTADO",
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA      and d.Fecha = (select TOP 1 Fecha from CLAVE where CodUsuario = @i_codUsuario order by Fecha desc)
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\rollback calidad\bvsp_mant_subcripciones_ssl.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO ESTA AUTORIZADO A ELIMINAR REGISTROS",
+Expresion " encontrada: SI
+	LINEA          @i_msg = "NO PUEDE ELIMINAR UN REGISTRO CON PASO SUSCRITO",
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\rollback calidad\sp_login_web.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI
+	LINEA/***** "Buscar datos del Usuario" *****/
+Expresion " encontrada: SI
+	LINEA/***** "Usuario sin clave definida " *****/
+Expresion " encontrada: SI
+	LINEA	-- "Se asume la ultima conexion fue hace mas de un año "
+Expresion " encontrada: SI
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA	order by Fecha desc
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\SSLApp2008\BackEnd\SPSQL\bvsp_mantenimiento_cliente_ssl.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI
+	LINEA      and d.Fecha = (select TOP 1 Fecha from CLAVE where CodUsuario = @i_codUsuario order by Fecha desc)
+Expresion ORDER BY encontrada: SI
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\254\2\SSLApp2008\BackEnd\SPSQL\bvsp_mant_subcripciones_ssl.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO

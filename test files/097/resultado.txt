@@ -1,0 +1,122 @@
+
+C:\Users\daeng\Desktop\Contador Palabras\097\resultado.txt
+
+C:\Users\daeng\Desktop\Contador Palabras\097\sp_atm_consulta_sol.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: SI
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\097\sp_atm_consulta_transf.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: SI
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI LINEA 	order by tr_tarjeta, tr_fecha_con
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\097\sp_atm_cons_historial.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: SI
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI LINEA 	order by hi_fecha
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\097\sp_atm_tarjeta.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: SI
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: NO
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: NO
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO
+
+C:\Users\daeng\Desktop\Contador Palabras\097\sp_cons_clientes_maestro.sp
+Expresion USE encontrada: SI
+Expresion ADMIN...RP_SSN encontrada: NO
+Expresion COBIS..ADMIN_RP_SSN encontrada: NO
+Expresion LEFT OUTER encontrada: NO
+Expresion RIGHT OUTER encontrada: NO
+Expresion *= encontrada: NO
+Expresion =* encontrada: NO
+Expresion WITH(INDEX encontrada: NO
+Expresion " encontrada: SI LINEA /*	"MACOSA", representantes exclusivos para el Ecuador de la 			*/ 
+Expresion ' encontrada: SI
+Expresion DUMP encontrada: NO
+Expresion LOAD encontrada: NO
+Expresion BACKUP encontrada: NO
+Expresion RESTORE encontrada: NO
+Expresion ORDER BY encontrada: SI LINEA  order by co_fecha_tran, co_autoriza 
+Expresion @@SQLSTATUS encontrada: NO
+Expresion @@FETCH_STATUS encontrada: NO
+Expresion HOLDLOCK encontrada: NO
+Expresion STR_REPLACE encontrada: NO
+Expresion REPLACE encontrada: NO
+Expresion RAISERROR encontrada: NO
+Expresion WITH ALLOW_DUP_ROW encontrada: NO

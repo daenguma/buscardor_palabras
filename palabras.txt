@@ -1,0 +1,26 @@
+use 
+create
+alter
+grant
+revoke
+left outer join
+right outer join
+\*=
+=\*
+index
+"
+'
+dump
+load
+backup
+restore
+order by
+@@sqlstatus
+@@fetch_status
+holdlock
+str_replace
+replace
+raiserror
+with allow_dup_row
+admin...
+exec
